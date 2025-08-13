@@ -20,9 +20,7 @@ export default function ClockPage() {
   }, [user, router]);
 
   // Optionally show a loading state while fetching user
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  
 
   return (
     <div>
