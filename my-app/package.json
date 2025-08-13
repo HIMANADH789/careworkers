@@ -2,17 +2,14 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
   "scripts": {
   "dev": "next dev",
   "build": "next build && next export",
-=======
-   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
->>>>>>> 479c6c024835254ff4d08537a8cf538eac06bf5f
-  "start": "next start"
-}
+
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
 ,
   "dependencies": {
     "@apollo/client": "^3.13.9",
