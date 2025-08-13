@@ -7,16 +7,17 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "prisma:migrate": "npx prisma migrate dev",
-    "prisma:generate": "npx prisma generate"
+    "prisma:generate": "npx prisma generate",
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.9.1",
     "apollo-server": "^3.13.0",
     "dotenv": "^16.4.5",
-    "graphql": "^16.9.0"
+    "graphql": "^16.9.0",
+    "prisma": "^5.9.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0",
-    "prisma": "^5.9.1"
+    "nodemon": "^3.1.0"
   }
 }
