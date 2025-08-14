@@ -2,8 +2,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// Make sure this matches your ApolloServer's actual endpoint path.
-// ApolloServer by default serves on /graphql, not just /
+console.log("GraphQL URL:", process.env.NEXT_PUBLIC_GRAPHQL_URL);
 const httpLink = createHttpLink({
   uri: `${process.env.NEXT_PUBLIC_GRAPHQL_URL }`,
 });
