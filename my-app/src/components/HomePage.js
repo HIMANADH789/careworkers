@@ -13,10 +13,7 @@ const HomePage = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, duration: 0.6 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, duration: 0.6 } },
   };
 
   const itemVariants = {
@@ -27,7 +24,7 @@ const HomePage = () => {
   const floatingVariants = {
     animate: {
       y: [-10, 10, -10],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+      transition: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
     },
   };
 
@@ -52,7 +49,7 @@ const HomePage = () => {
       align="center"
       justify="center"
     >
-      {/* Always visible top-left text */}
+      {/* Top-left dev login text */}
       <Box
         style={{
           position: "absolute",
@@ -60,17 +57,17 @@ const HomePage = () => {
           left: 20,
           zIndex: 10,
           padding: "4px 8px",
-          backgroundColor: "rgba(255,255,255,0.8)",
+          backgroundColor: "rgba(255,255,255,0.85)",
           borderRadius: 6,
-          boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
         }}
       >
         <Text size="small" weight="bold">
-          Dev Login: Email: can@gmail.com | Password: Can@1234
+          Dev Login As Manager With: Email: can@gmail.com | Password: Can@1234
         </Text>
       </Box>
 
-      {/* Animated Background */}
+      {/* Animated Background Elements */}
       <Box
         fill
         style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }}
@@ -116,7 +113,7 @@ const HomePage = () => {
         />
       </Box>
 
-      {/* Login button top-right */}
+      {/* Login button top right */}
       <Box style={{ position: "absolute", top: 20, right: 20, zIndex: 10 }}>
         {!isAuthenticated && (
           <Button
@@ -136,7 +133,7 @@ const HomePage = () => {
         )}
       </Box>
 
-      {/* Main Content */}
+      {/* Main MotionBox Content (Hero, Auth, Features) */}
       <MotionBox
         width="large"
         align="center"
@@ -147,8 +144,7 @@ const HomePage = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Hero Section */}
-        {/* ... rest of your Hero, Auth, Features sections unchanged ... */}
+        {/* ... rest of your code remains 100% intact ... */}
       </MotionBox>
     </Box>
   );
