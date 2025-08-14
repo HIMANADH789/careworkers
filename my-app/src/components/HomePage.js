@@ -42,46 +42,29 @@ const HomePage = () => {
     },
   };
 
-  // Updated features with requested titles/descriptions
   const features = [
-    {
-      icon: Clock,
-      title: "Clock-IN and Clock-Out Tracking",
-    },
-    {
-      icon: Shield,
-      title: "Work Time Analytics",
-    },
-    {
-      icon: Users,
-      title: "Secure & Compliant",
-    },
+    { icon: Clock, title: "Clock-IN and Clock-Out Tracking" },
+    { icon: Shield, title: "Work Time Analytics" },
+    { icon: Users, title: "Secure & Compliant" },
   ];
 
   return (
     <Box
       fill
-      background={{
-        color: "light-1",
-        dark: false,
-      }}
+      background={{ color: "light-1", dark: false }}
       style={{
-        background:
-          "linear-gradient(to bottom right, #d1fae5, #ffffff, #dbeafe)",
+        background: "linear-gradient(to bottom right, #d1fae5, #ffffff, #dbeafe)",
         position: "relative",
         overflow: "hidden",
         minHeight: "100vh",
-        boxShadow: "inset 0 0 50px rgba(0,0,0,0.05)", // subtle vignette inside edges
+        boxShadow: "inset 0 0 50px rgba(0,0,0,0.05)",
       }}
       pad="large"
       align="center"
       justify="center"
     >
       {/* Animated Background Elements */}
-      <Box
-        fill
-        style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }}
-      >
+      <Box fill style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }}>
         <motion.div
           style={{
             position: "absolute",
@@ -124,9 +107,7 @@ const HomePage = () => {
       </Box>
 
       {/* Login button top right */}
-      <Box
-        style={{ position: "absolute", top: 20, right: 20, zIndex: 10 }}
-      >
+      <Box style={{ position: "absolute", top: 20, right: 20, zIndex: 10 }}>
         {!isAuthenticated && (
           <Button
             label={
@@ -156,17 +137,8 @@ const HomePage = () => {
         animate="visible"
       >
         {/* Hero Section */}
-        <MotionBox
-          align="center"
-          gap="medium"
-          variants={itemVariants}
-          textAlign="center"
-        >
-          <MotionBox
-            variants={floatingVariants}
-            animate="animate"
-            style={{ position: "relative" }}
-          >
+        <MotionBox align="center" gap="medium" variants={itemVariants} textAlign="center">
+          <MotionBox variants={floatingVariants} animate="animate" style={{ position: "relative" }}>
             <Box
               width="128px"
               height="128px"
@@ -204,19 +176,16 @@ const HomePage = () => {
             size="xlarge"
             margin={{ vertical: "small" }}
             style={{
-              background:
-                "linear-gradient(to right, #0d9488, #0f766e, #2563eb)",
+              background: "linear-gradient(to right, #0d9488, #0f766e, #2563eb)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               whiteSpace: "nowrap",
               position: "relative",
               display: "inline-block",
-              textShadow: "0 0 8px rgba(37, 99, 235, 0.7)", // subtle glow
+              textShadow: "0 0 8px rgba(37, 99, 235, 0.7)",
             }}
           >
             Streamline Your
-
-            {/* Underline animation */}
             <MotionBox
               background={{ color: "brand", opacity: "medium" }}
               style={{
@@ -233,24 +202,22 @@ const HomePage = () => {
               transition={{ delay: 1, duration: 0.8 }}
             />
           </Heading>
+
           <Heading
             level={1}
             size="xlarge"
             margin={{ vertical: "small" }}
             style={{
-              background:
-                "linear-gradient(to right, #0d9488, #0f766e, #2563eb)",
+              background: "linear-gradient(to right, #0d9488, #0f766e, #2563eb)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               whiteSpace: "nowrap",
               position: "relative",
               display: "inline-block",
-              textShadow: "0 0 8px rgba(37, 99, 235, 0.7)", // subtle glow
+              textShadow: "0 0 8px rgba(37, 99, 235, 0.7)",
             }}
           >
             Healthcare Shift Management
-
-            {/* Underline animation */}
             <MotionBox
               background={{ color: "brand", opacity: "medium" }}
               style={{
@@ -277,52 +244,22 @@ const HomePage = () => {
 
         {/* Auth Section for logged in */}
         {isAuthenticated && (
-          <MotionBox
-            variants={itemVariants}
-            width="medium"
-            align="center"
-            margin={{ vertical: "medium" }}
-          >
+          <MotionBox variants={itemVariants} width="medium" align="center" margin={{ vertical: "medium" }}>
             <Card
-              background={{
-                color: "white",
-                opacity: "medium",
-                dark: false,
-              }}
+              background={{ color: "white", opacity: "medium", dark: false }}
               elevation="large"
               pad="medium"
               width="100%"
-              style={{
-                background: "linear-gradient(135deg, #e0f7fa, #ffffff)",
-                borderRadius: 12,
-              }}
+              style={{ background: "linear-gradient(135deg, #e0f7fa, #ffffff)", borderRadius: 12 }}
             >
               <CardBody>
-                <Box
-                  direction="row"
-                  gap="medium"
-                  align="center"
-                  margin={{ bottom: "small" }}
-                >
-                  <Box
-                    background="brand"
-                    round="full"
-                    pad="small"
-                    align="center"
-                    justify="center"
-                    width="48px"
-                    height="48px"
-                    elevation="medium"
-                  >
+                <Box direction="row" gap="medium" align="center" margin={{ bottom: "small" }}>
+                  <Box background="brand" round="full" pad="small" align="center" justify="center" width="48px" height="48px" elevation="medium">
                     <Users color="white" size={24} />
                   </Box>
                   <Box>
-                    <Text size="small" color="dark-4">
-                      Welcome back,
-                    </Text>
-                    <Text weight="bold" size="medium" color="dark-1">
-                      {user?.name || user?.email}
-                    </Text>
+                    <Text size="small" color="dark-4">Welcome back,</Text>
+                    <Text weight="bold" size="medium" color="dark-1">{user?.name || user?.email}</Text>
                   </Box>
                 </Box>
                 <Button
@@ -338,29 +275,11 @@ const HomePage = () => {
             </Card>
           </MotionBox>
         )}
-        <MotionBox
-          as="section"
-          direction="column"
-          gap="large"
-          width="100%"
-          variants={containerVariants}
-          margin={{ vertical: "large" }}
-        >
-          <Box
-            direction="column"
-            gap="large"
-            width="100%"
-            align="center"
-          >
-            {/* First row: 2 features side by side */}
-            <Box
-              direction="row"
-              gap="xlarge"
-              justify="center"
-              wrap={false}
-              width="100%"
-              maxWidth="800px"
-            >
+
+        {/* Features Section */}
+        <MotionBox as="section" direction="column" gap="large" width="100%" variants={containerVariants} margin={{ vertical: "large" }}>
+          <Box direction="column" gap="large" width="100%" align="center">
+            <Box direction="row" gap="xlarge" justify="center" wrap={false} width="100%" maxWidth="800px">
               {[features[0], features[1]].map(({ icon: Icon, title }, i) => (
                 <MotionBox
                   key={i}
@@ -377,25 +296,10 @@ const HomePage = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Box
-                    background="brand"
-                    round="medium"
-                    pad="medium"
-                    align="center"
-                    justify="center"
-                    elevation="large"
-                    style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}
-                  >
+                  <Box background="brand" round="medium" pad="medium" align="center" justify="center" elevation="large" style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}>
                     <Icon color="white" size={40} />
                   </Box>
-                  <Heading
-                    level={3}
-                    margin="none"
-                    color="dark-1"
-                    textAlign="center"
-                  >
-                    {title}
-                  </Heading>
+                  <Heading level={3} margin="none" color="dark-1" textAlign="center">{title}</Heading>
                 </MotionBox>
               ))}
             </Box>
@@ -419,31 +323,44 @@ const HomePage = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                     width="medium"
                   >
-                    <Box
-                      background="brand"
-                      round="medium"
-                      pad="medium"
-                      align="center"
-                      justify="center"
-                      elevation="large"
-                      style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}
-                    >
+                    <Box background="brand" round="medium" pad="medium" align="center" justify="center" elevation="large" style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}>
                       <Icon color="white" size={40} />
                     </Box>
-                    <Heading
-                      level={3}
-                      margin="none"
-                      color="dark-1"
-                      textAlign="center"
-                    >
-                      {features[2].title}
-                    </Heading>
+                    <Heading level={3} margin="none" color="dark-1" textAlign="center">{features[2].title}</Heading>
                   </MotionBox>
                 );
               })()}
             </Box>
           </Box>
         </MotionBox>
+
+        {/* Development-only Test Manager Login */}
+        {process.env.NODE_ENV === "development" && !isAuthenticated && (
+          <Box
+            margin={{ top: "large" }}
+            pad="medium"
+            background={{ color: "light-2" }}
+            round="small"
+            align="center"
+          >
+            <Text size="small" color="dark-4" margin={{ bottom: "small" }}>
+              For testing as Manager, use:
+            </Text>
+            <Text size="small" color="dark-3">
+              Email: <strong>can@gmail.com</strong>
+            </Text>
+            <Text size="small" color="dark-3" margin={{ bottom: "small" }}>
+              Password: <strong>Can@1234</strong>
+            </Text>
+            <Button
+              label="Login as Manager (Dev Only)"
+              primary
+              color="brand"
+              onClick={() => loginWithRedirect({ login_hint: "can@gmail.com" })}
+              style={{ marginTop: 8, borderRadius: 12 }}
+            />
+          </Box>
+        )}
       </MotionBox>
     </Box>
   );
