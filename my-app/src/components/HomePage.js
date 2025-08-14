@@ -63,8 +63,33 @@ const HomePage = () => {
       align="center"
       justify="center"
     >
+      {/* Development-only test login hint top-left */}
+      {process.env.NODE_ENV === "development" && (
+        <Box
+          style={{
+            position: "absolute",
+            top: 20,
+            left: 20,
+            zIndex: 10,
+            padding: "8px 12px",
+            backgroundColor: "rgba(255,255,255,0.8)",
+            borderRadius: 8,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          }}
+        >
+          <Text size="small" weight="bold">
+            Dev Login:
+          </Text>
+          <Text size="small">Email: can@gmail.com</Text>
+          <Text size="small">Password: Can@1234</Text>
+        </Box>
+      )}
+
       {/* Animated Background Elements */}
-      <Box fill style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }}>
+      <Box
+        fill
+        style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 0 }}
+      >
         <motion.div
           style={{
             position: "absolute",
@@ -106,7 +131,7 @@ const HomePage = () => {
         />
       </Box>
 
-      {/* Login button top right */}
+      {/* Login button top-right */}
       <Box style={{ position: "absolute", top: 20, right: 20, zIndex: 10 }}>
         {!isAuthenticated && (
           <Button
@@ -281,21 +306,7 @@ const HomePage = () => {
           <Box direction="column" gap="large" width="100%" align="center">
             <Box direction="row" gap="xlarge" justify="center" wrap={false} width="100%" maxWidth="800px">
               {[features[0], features[1]].map(({ icon: Icon, title }, i) => (
-                <MotionBox
-                  key={i}
-                  basis="medium"
-                  flex={{ grow: 1, shrink: 0 }}
-                  background={{ color: "white", opacity: "medium" }}
-                  elevation="large"
-                  pad="large"
-                  round="medium"
-                  align="center"
-                  gap="small"
-                  variants={itemVariants}
-                  style={{ cursor: "default" }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <MotionBox key={i} basis="medium" flex={{ grow: 1, shrink: 0 }} background={{ color: "white", opacity: "medium" }} elevation="large" pad="large" round="medium" align="center" gap="small" variants={itemVariants} style={{ cursor: "default" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Box background="brand" round="medium" pad="medium" align="center" justify="center" elevation="large" style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}>
                     <Icon color="white" size={40} />
                   </Box>
@@ -308,21 +319,7 @@ const HomePage = () => {
               {(() => {
                 const Icon = features[2].icon;
                 return (
-                  <MotionBox
-                    basis="medium"
-                    flex={{ grow: 0, shrink: 0 }}
-                    background={{ color: "white", opacity: "medium" }}
-                    elevation="large"
-                    pad="large"
-                    round="medium"
-                    align="center"
-                    gap="small"
-                    variants={itemVariants}
-                    style={{ cursor: "default" }}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    width="medium"
-                  >
+                  <MotionBox basis="medium" flex={{ grow: 0, shrink: 0 }} background={{ color: "white", opacity: "medium" }} elevation="large" pad="large" round="medium" align="center" gap="small" variants={itemVariants} style={{ cursor: "default" }} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }} width="medium">
                     <Box background="brand" round="medium" pad="medium" align="center" justify="center" elevation="large" style={{ boxShadow: "0 15px 25px rgba(0,0,0,0.2)" }}>
                       <Icon color="white" size={40} />
                     </Box>
@@ -333,34 +330,6 @@ const HomePage = () => {
             </Box>
           </Box>
         </MotionBox>
-
-        {/* Development-only Test Manager Login */}
-        {process.env.NODE_ENV === "development" && !isAuthenticated && (
-          <Box
-            margin={{ top: "large" }}
-            pad="medium"
-            background={{ color: "light-2" }}
-            round="small"
-            align="center"
-          >
-            <Text size="small" color="dark-4" margin={{ bottom: "small" }}>
-              For testing as Manager, use:
-            </Text>
-            <Text size="small" color="dark-3">
-              Email: <strong>can@gmail.com</strong>
-            </Text>
-            <Text size="small" color="dark-3" margin={{ bottom: "small" }}>
-              Password: <strong>Can@1234</strong>
-            </Text>
-            <Button
-              label="Login as Manager (Dev Only)"
-              primary
-              color="brand"
-              onClick={() => loginWithRedirect({ login_hint: "can@gmail.com" })}
-              style={{ marginTop: 8, borderRadius: 12 }}
-            />
-          </Box>
-        )}
       </MotionBox>
     </Box>
   );
